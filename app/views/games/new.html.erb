@@ -1,0 +1,17 @@
+<div class="container" style="width: 900px">
+  <h1>New game</h1>
+  <div class="my-5 letters d-flex justify-content-between">
+    <% @random_letters.each do |letter| %>
+      <div class="p-3 shadow bg-primary" style="width: 50px; height: 50px">
+        <p class="text-center m-0 fw-bold text-white"><%= letter.upcase %></p>
+      </div>
+    <% end %>
+  </div>
+    <p>What is the longest word you can find?</p>
+    <form action="/score" method="post" data-turbo="false" class="input-group">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :grid, @random_letters %>
+      <input type="text" name="answer" class="form-control">
+      <input type="submit" class="btn btn-primary">
+    </form>
+</div>

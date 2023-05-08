@@ -1,0 +1,9 @@
+<h1>Result</h1>
+<% case @result %>
+  <% when 'well done' %>
+    <p><strong>Congratulations!</strong> <%= @attempt.upcase %> is a valid English word!</p>
+  <% when 'not an english word' %>
+    <p>Sorry but <strong><%= @attempt.upcase %></strong> does not seem to be a valid English word...</p>
+  <% else %>
+    <p>Sorry but <strong><%= @attempt.upcase %></strong> can't be built out of <%= @grid.split.map(&:upcase).join(',') %>
+<% end %>
